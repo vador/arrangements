@@ -44,10 +44,12 @@ def output_arrangements(bitField, radix, length, cnt):
         return cnt
     for i in range(bitField.length):
         if bitField.isBitSet(i):
+            # Here we assume the set contains numbers : could use a conversion function for symbols instead
             new_radix = radix + chr(i + ord("0"))
             new_bitField = bitField.__copy__()
             new_bitField.unsetBit(i)
             cnt = output_arrangements(new_bitField, new_radix, length, cnt)
     return cnt
 
-output_arrangements(Bit_Field(10),"",6, 0)
+if __name__ == '__main__':
+    output_arrangements(Bit_Field(10),"",6, 0)

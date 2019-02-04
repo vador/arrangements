@@ -1,12 +1,23 @@
-import arrangements
+from arrangements import Bit_Field
 from unittest import TestCase
 
 
 class TestIsBitSet(TestCase):
     def test_isBitSet(self):
-        testBuildField = arrangements.buildBitField(4)
-        self.assertEqual(arrangements.isBitSet(1, testBuildField), True)
-        self.assertEqual(arrangements.isBitSet(0, testBuildField), True)
-        self.assertEqual(arrangements.isBitSet(5, testBuildField), False)
+        testBuildField = Bit_Field(4)
+        self.assertEqual(testBuildField.isBitSet(1), True)
+        self.assertEqual(testBuildField.isBitSet(0), True)
+        self.assertEqual(testBuildField.isBitSet(5), False)
 
+    def test_should_unsetbit(self):
+        testBuildField = Bit_Field(4)
+        self.assertEqual(testBuildField.isBitSet(1), True, "Bit 1 was not set !")
+        testBuildField.unsetBit(1)
+        self.assertEqual(testBuildField.isBitSet(1), False, "Bit 1 was not unset !")
+
+    def test_should_setbit(self):
+        testBuildField = Bit_Field(4)
+        self.assertEqual(testBuildField.isBitSet(1), True, "Bit 1 was not set !")
+        testBuildField.unsetBit(1)
+        self.assertEqual(testBuildField.isBitSet(1), False, "Bit 1 was not unset !")
 
