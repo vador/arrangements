@@ -1,3 +1,5 @@
+import cProfile, pstats, io
+from pstats import SortKey
 
 class Bit_Field:
     bitF = None
@@ -52,4 +54,17 @@ def output_arrangements(bitField, radix, length, cnt):
     return cnt
 
 if __name__ == '__main__':
+    pr = cProfile.Profile()
+    pr.enable()
+
+
+    # ... do something ...
     output_arrangements(Bit_Field(10),"",6, 0)
+
+
+    pr.disable()
+    s = io.StringIO()
+    sortby = SortKey.CUMULATIVE
+    ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+    ps.print_stats()
+    print(s.getvalue())
