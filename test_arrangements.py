@@ -3,6 +3,11 @@ from unittest import TestCase
 
 
 class TestIsBitSet(TestCase):
+    def test_buildBitField(self):
+        testBuildField = Bit_Field(4)
+        self.assertEqual(testBuildField.bitF, 1 + 2 + 4 + 8 + 16)
+
+
     def test_isBitSet(self):
         testBuildField = Bit_Field(4)
         self.assertEqual(testBuildField.isBitSet(1), True)
