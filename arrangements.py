@@ -41,8 +41,8 @@ class Bit_Field:
 
 def output_arrangements(bitField, radix, length, cnt):
     if  len(radix) == length:
-        print(cnt, " : ", radix)
         cnt += 1
+        print(cnt, " : ", radix)
         return cnt
     for i in range(bitField.length):
         if bitField.isBitSet(i):
